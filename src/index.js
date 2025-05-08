@@ -15,7 +15,7 @@ root.render(
   // この<React.〜>の部分がJSX
   // React.StrictMode は「コードの実行をより厳格に制御するためのもの」
   <React.StrictMode> 
-    <App title = "Hello,World!" message = "これはcolor=redの表示です。" color = "red"/> 
+    <App title = "Hello,World!" message = "これはcolor=redの表示です。" color = "blue"/> 
     {/* /* Appタグにtitleとmessageという属性を用意 */}
   </React.StrictMode>
 )
