@@ -4,20 +4,39 @@ import { useState, useEffect } from 'react'
 
 // App関数
 function App(props) {
-  var [flag,setFlag] = useState(true) // クラスAとクラスBを切り替えるためのboolean値（true / false）を保管するステート（flag）
-  const doClick = (event)=> { // クリックするたびにsetFlagが切り替わる（現在のフラグ値を反転(!flag)させることでオンオフを切り替える）
-    setFlag(!flag)
+  var [count, setCount] = useState(0)
+  var [data,setData] = useState([
+    {
+      position: "absolute",
+      left:"0px", 
+      top: "0px",
+      width:"100%",height:"100%",
+      backgroundColor:"#fff0",
+    }
+  ])
+
+  const doClick = (event)=> {
+    const ob = {
+      position: "absolute",
+      left:(event.pageX - 50) + "px", 
+      top: (event.pageY - 50) + "px",
+      width:"100px",height:"100px",
+      backgroundColor:"#ff000066",
+      borderRadius:"50%",
+    }
+    data.push(ob)
+    setCount(count + 1)
   }
 
   return (
     <div className='App'>
-      {/* propsで渡されたタイトル */}
       <h1>{props.title}</h1> 
-      {/* クラス名と表示テキストをflagの値で切り替える */}
-      <p className={flag ? "ClassA" : "ClassB"}>{flag ? "ON" : "OFF"} です。</p>
-      {/* onClickの処理内容はdoClick（上で定義） */}
-      <button className='button' onClick={doClick}>クリック！</button>
-      
+      <p>{count} objects.</p>
+      <div onClick={doClick}>
+        {data.map((item,key)=>{
+          return(<div style={item} key={key}></div>)
+        })}
+      </div>      
     </div>
   )
 }
