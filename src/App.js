@@ -4,25 +4,20 @@ import { useState, useEffect } from 'react'
 
 // App関数
 function App(props) {
-  // nameとmailという値をもつオブジェクトの配列を用意。定数data
-  const data = [
-    {name:"Taro", mail:"taro@sato.com"},
-    {name:"Hana", mail:"hana@kato.com"},
-    {name:"Kosuke", mail:"kosuke@seto.com"},     
-  ]
+  var [flag,setFlag] = useState(true) // クラスAとクラスBを切り替えるためのboolean値（true / false）を保管するステート（flag）
+  const doClick = (event)=> { // クリックするたびにsetFlagが切り替わる（現在のフラグ値を反転(!flag)させることでオンオフを切り替える）
+    setFlag(!flag)
+  }
+
   return (
     <div className='App'>
-      <h1>{props.title}</h1>
-      {/* 定数dataの内容をリスト表示。JavaScriptで記述 */}
-      <ul>
-        {/* data.mapでdataの値を繰り返し表示する */}
-        {/* 引数で渡されたitemには配列の各値が代入されている */}
-        {data.map((item,key)=> { 
-          return(
-          <li>{item.name} [{item.mail}]</li>
-        )
-        })}
-      </ul>
+      {/* propsで渡されたタイトル */}
+      <h1>{props.title}</h1> 
+      {/* クラス名と表示テキストをflagの値で切り替える */}
+      <p className={flag ? "ClassA" : "ClassB"}>{flag ? "ON" : "OFF"} です。</p>
+      {/* onClickの処理内容はdoClick（上で定義） */}
+      <button className='button' onClick={doClick}>クリック！</button>
+      
     </div>
   )
 }
