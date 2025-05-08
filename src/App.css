@@ -65,3 +65,18 @@ button {
   margin: 5px;
   padding: 5px, 15px;
 }
+
+/* 2-3. リストの表示を設定sるるスタイルクラス */
+ul, ol {
+  list-style-type: none;
+  padding: 0px;
+}
+
+li {
+  text-align: center;
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px 20px;
+  border: solid 2px lightgray;
+  border-radius: 5px;
+}
