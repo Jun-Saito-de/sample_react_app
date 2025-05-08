@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+/* 色のクラスを作成 */
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+/* クリックする要素のスタイルクラスを変更 */
+.clickable {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* フォーム用にスタイルクラスを用意 */
+input {
+  margin: 5px;
+  padding: 5px;
+}
+button {
+  margin: 5px;
+  padding: 5px, 15px;
+}

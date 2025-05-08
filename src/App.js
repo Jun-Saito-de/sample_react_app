@@ -1,27 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { useState } from 'react'
 
-function App() {
+// App関数
+function App(props) {
+    // カウンターをステートで管理 初期値は0
+  const [counter, setCounter] = useState(0)
+   // カウンターを増やす関数
+  const doClick = () => {
+    setCounter(counter + 1)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className={props.color}>{props.title}</h1>
+      {/* クラス名をテンプレートリテラルで連結し、クリック時にカウンターを増やす */}
+      <p className={`${props.color} clickable`}
+        onClick={doClick}>counter: {counter}.</p>
     </div>
-  );
+  )
 }
 
-// JavaScriptで定義した関数やオブジェクトなどを外部からインポートして利用できるようにするためのもの
-export default App;
-// 確認
+export default App
