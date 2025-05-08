@@ -24,3 +24,4 @@ function App() {
 
 // JavaScriptで定義した関数やオブジェクトなどを外部からインポートして利用できるようにするためのもの
 export default App;
+// 確認
