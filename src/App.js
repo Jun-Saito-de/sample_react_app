@@ -1,42 +1,50 @@
-// リスト2-13 初期値が反映されない理由不明
+// リスト2-19
+// 複数コンポーネントの利用
+
 import './App.css'
 import { useState, useEffect } from 'react'
+// App.cssをインポートして適用
 
-// App関数
-function App(props) {
-  var [count, setCount] = useState(0)
-  var [data,setData] = useState([
-    {
-      position: "absolute",
-      left:"0px", 
-      top: "0px",
-      width:"100%",height:"100%",
-      backgroundColor:"#fff0",
-    }
-  ])
-
-  const doClick = (event)=> {
-    const ob = {
-      position: "absolute",
-      left:(event.pageX - 50) + "px", 
-      top: (event.pageY - 50) + "px",
-      width:"100px",height:"100px",
-      backgroundColor:"#ff000066",
-      borderRadius:"50%",
-    }
-    data.push(ob)
-    setCount(count + 1)
-  }
-
+// Messageというコンポーネントを関数として定義
+// 引数に渡されるpropsからmessageのプロパティを取り出し、cssでスタイル定義されたClassAのスタイル指定で返す
+function Message(props) {
   return (
+    // ClassAクラスを適用して、props.messageを表示するコンポーネント
+    <p className='ClassA'>{props.message}</p>
+  )
+}
+
+// データというコンポーネント
+function Data(props) {
+  return (
+    <ul>
+      {props.data.map((item,key)=> {
+        // data配列の要素を順次リスト項目（li）として返す
+        return(<li key={key}>{item.name}</li>)
+      })}
+    </ul>
+  )
+}
+
+// Appというコンポーネント
+function App(props) {
+  // data配列を定義し、名前オブジェクトを保持
+  const data = [
+    {name: "Naoto"},
+    {name: "Aoi"},
+    {name: "Sumire"},
+  ]
+
+
+  // コンポーネントの描画内容を定義
+  return(
     <div className='App'>
-      <h1>{props.title}</h1> 
-      <p>{count} objects.</p>
-      <div onClick={doClick}>
-        {data.map((item,key)=>{
-          return(<div style={item} key={key}></div>)
-        })}
-      </div>      
+      {/* props.titleをClassBクラスで表示 */}
+      <h1 className='ClassB'>{props.title}</h1>
+      {/* Messageコンポーネントにmessageを渡して表示 */}      
+      <Message message="This is sample message!"/>
+      ß{/* Dataコンポーネントにdata配列を渡して表示 */}
+      <Data data = {data} />
     </div>
   )
 }
