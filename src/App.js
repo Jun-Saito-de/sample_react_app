@@ -2,7 +2,8 @@ import './App.css'
 import { useState, useEffect } from 'react'
 
 function App(props) {
-
+  // const [input, setInput] = useState("")
+  // const [message, setMessage] = useState("お名前は？")
   const [input, setInput] = useState(1)
   const [message, setMessage] = useState("");
   const doInput = (event) =>{
@@ -13,6 +14,7 @@ function App(props) {
   }
 
   useEffect(()=> {
+    // 入力が0以下ならメッセージを入力して終了
     if (input <= 0) {
       setMessage("自然数を入力してください");
       return
@@ -33,6 +35,10 @@ function App(props) {
   }, [input]);
   
 
+  // const [counter, setCounter] = useState(0) // useState(0)で、初期値が0のステートが作成される。counterにはステートの値が代入され、setCounterにはステートを変更する関数が代入される  
+  // const doClick = ()=> {
+  //   setCounter(counter+1)
+  // }
   return (
     <div className='App'>
       <h1 className={props.color}>{props.title}</h1>
