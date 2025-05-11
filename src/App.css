@@ -53,17 +53,18 @@
 /* クリックする要素のスタイルクラスを変更 */
 .clickable {
   cursor: pointer;
-  font-size: 24px;
+  font-size: 32px;
 }
 
 /* フォーム用にスタイルクラスを用意 */
 input {
-  margin: 5px;
-  padding: 5px;
+  margin: 8px;
+  padding: 8px;
+  width: 13em;
 }
 button {
-  margin: 5px;
-  padding: 5px, 15px;
+  margin: 8px;
+  padding: 8px, 15px;
 }
 
 /* 2-3. リストの表示を設定sるるスタイルクラス */
