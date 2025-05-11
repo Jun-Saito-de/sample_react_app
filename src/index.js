@@ -9,7 +9,7 @@ import { render } from '@testing-library/react';
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <App color = 'red' title = 'TOKYO ROSSO!' message = 'これはレッドを適用した際の表示です' />
+    <App color = 'red' title = 'URAWA REDS' message = 'これはレッドを適用した際の表示です' />
   </React.StrictMode>
 )
 
