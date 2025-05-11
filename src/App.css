@@ -74,12 +74,12 @@ ul, ol {
 }
 
 li {
-  text-align: center;
-  font-size: 20px;
-  padding: 5px;
-  margin: 5px 20px;
+  text-align: left;
+  font-size: 24px;
+  padding: 8px;
+  margin: 12px 20px;
   border: solid 2px lightgray;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 /* 2-3 スタイルクラスの操作 */
